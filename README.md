@@ -1,6 +1,12 @@
 ## Repository for Expert-Guided-Prompting-and-Retrieval-Augmented-Generation-for-EMS-Question-Answering
 
-### Data Statistics
+### Overall Stucture of the Work
+![Overall Approach](figure/EMSQA.drawio.png)
+1. We introduce **EMSQA**, the first EMS MCQA dataset of 24.3K questions, curated based on public and private sources, covering 10 subject areas and 4 certification levels, and accompanied by a structured, subject area-aligned **EMS knowledge base** (KB) with 40K documents and 4M real-world patient care reports. Partial data (from public sources) and the whole EMS KB will be shared as a resource with the EMS and research communities.
+2. We propose two approaches to inject domain expertise into LLMs: 1) an **expertise-guided prompting strategy (Expert-CoT)** that encourages step-by-step reasoning from a domain-specific perspective. 2) **an expertise-guided RAG method (ExpertRAG)** that selectively retrieves expertise-aligned knowledge from curated EMS KBs and patient records
+3. We benchmark multiple LLMs on EMSQA, evaluating performance across certification levels and subject areas, and compare our framework against SOTA RAG methods. Experimental results show that combining Expert-CoT and ExpertRAG yields up to a 4.67% improvement in accuracy. Notably, the **32B expertise-augmented models pass all the EMS certification simulation exams**.
+
+### Data, Knowledge Base and Patient Records
 #### Dataset
 Download from Huggingface [EMS-MCQA](https://huggingface.co/datasets/Xueren/EMS-MCQA)
 
@@ -9,6 +15,22 @@ Download from Huggingface [EMS-Knowledge](https://huggingface.co/datasets/Xueren
 
 #### Patient Records
 Apply at [NEMSIS](https://nemsis.org/using-ems-data/request-research-data/) to request the patient records, and use our scripts to process the data. Or you can download the embedding encoded by MedCPT from [link](https://drive.google.com/drive/folders/1_362lCph863LXtrR-vNHuT8nQhTSzdmQ?usp=sharing), and directly load using FAISS.
+
+### Expert-CoT and Expert-RAG
+![Expert-CoT, ExpertRAG](figure/ExpertRAG.drawio.png)
+#### Filter (Left)
+To guide the LLM reasoning and RAG retrieval based on question-specific expertise, we train a lightweight LLM-based filter to predict the key expertise attributes, including
+question’s subject area and certification level. 
+#### Expert-CoT (Mid)
+Expert-CoT prompting guides the model’s reasoning by explicitly providing the subject area and certification level as starting point for the thought process.
+#### Expert-RAG (Right)
+The filter’s predicted subject area guides the retriever to search for relevant knowledge base entries and patient records tailored to the question’s subject area. The LLM then conditions on the predicted expertise and the retrieved documents to generate the final answer. 
+
+**Global**: Retrieve the top M and N evidence documents from the entire KB and PR, respectively. 
+
+**Filter then Retrieve (FTR)**: First filter the whole KB and PR to retain only documents matching the predicted subject area, then retrieve the top M and N documents from these filtered subsets
+
+**Retrieve then Filter (RTF)**: First retrieve a larger candidate set from the whole KB and PR (e.g., 10 × Mfrom KB and 10 × N from PR), then filter out documents whose subject area do not match ˆsi, retaining the top M and N relevant documents
 
 ### How to run the code
 
