@@ -1,4 +1,4 @@
-## Repository for web scraping EMS multi-choice QAs
+## Repository for Expert-Guided-Prompting-and-Retrieval-Augmented-Generation-for-EMS-Question-Answering
 
 ### Data Statistics
 #### Dataset
@@ -147,5 +147,3 @@ Go to these folders to check how to do crawling
 10. paramedic-medication-manual
 11. redcross-org
 12. youtube
-# Expert-Guided-Prompting-and-Retrieval-Augmented-Generation-for-EMS-Question-Answering
-# Expert-Guided-Prompting-and-Retrieval-Augmented-Generation-for-EMS-Question-Answering
