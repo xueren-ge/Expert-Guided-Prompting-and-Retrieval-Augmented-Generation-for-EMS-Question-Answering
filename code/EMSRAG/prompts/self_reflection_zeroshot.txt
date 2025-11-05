@@ -1,0 +1,5 @@
+Question: {q}
+Proposed Answer: {a}
+
+Is the proposed answer: A. Correct, B. Incorrect, or C. I am not sure.
+Return your final answer as a lowercase letter in strict JSON format, like: ["a"]

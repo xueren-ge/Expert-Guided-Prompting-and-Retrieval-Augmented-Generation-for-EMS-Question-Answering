@@ -1,0 +1,42 @@
+Given a multiple-choice question, identify its most relevant certification level and associated categories.
+
+
+Certification Choices (choose one or more): 
+1. "aemt",
+2. "emr",
+3. "emt",
+4. "paramedic"
+
+Category Choices (choose one or more):
+1. "airway_respiration_and_ventilation",
+2. "anatomy",
+3. "assessment",
+4. "cardiology_and_resuscitation",
+5. "ems_operations",
+6. "medical_and_obstetrics_gynecology",
+7. "others",
+8. "pediatrics",
+9. "pharmacology",
+10. "trauma"
+
+Please return your answer strictly in the following JSON format:
+{{
+    "certification": ["<certification_number>"],
+    "category": ["<category_number_1>", "<category_number_2>", ...]
+}}
+
+Here are 4 examples:
+Question: which of the following are the most utilized routes of medication administration? a. oral and sublingual b. parenteral and sublingual c. parenteral and oral d. sublingual and inhalation e. oral and inhalation
+Answer: {{"certification": ["3"], "category": ["9"]}}
+
+Question: a patient presents with bright red lips and fingernails, along with confusion and headache. as an emergency medical responder, what would be your immediate course of action? a. administer oxygen and assess for other symptoms b. wait for the patient to regain consciousness c. provide fluids and monitor vital signs d. transport the patient to the hospital without any intervention
+Answer: {{"certification": ["2"], "category": ["1"]}}
+
+Question: which of the following best describes a patient with septic shock? a. patient with presence of bacteria in blood b. patient with infection with persistent hypotension despite fluid resuscitation c. patient with infection with organ dysfunction d. patient with infection and local inflammation at infection site
+Answer: {{"certification": ["4"], "category": ["4"]}}
+
+Question: the primary cause of cardiac arrest in infants and children is - a. anaphylaxis b. cardiovascular collapse following bleeding c. an arrhythmia d. an uncorrected respiratory problem
+Answer: {{"certification": ["1"], "category": ["8", "4"]}}
+
+
+Question: {question}

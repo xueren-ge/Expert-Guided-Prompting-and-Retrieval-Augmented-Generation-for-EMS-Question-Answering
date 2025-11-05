@@ -1,0 +1,33 @@
+Given a multiple-choice question, think step by step to identify its most relevant certification level and associated categories.
+
+Question: {question}
+
+Certification Choices (choose one or more): 
+1. "aemt",
+2. "emr",
+3. "emt",
+4. "paramedic"
+
+Category Choices (choose one or more):
+1. "airway_respiration_and_ventilation",
+2. "anatomy",
+3. "assessment",
+4. "cardiology_and_resuscitation",
+5. "ems_operations",
+6. "medical_and_obstetrics_gynecology",
+7. "others",
+8. "pediatrics",
+9. "pharmacology",
+10. "trauma"
+
+Please think step by step and then return your answer strictly in the following JSON format:
+{{
+    "certification": ["<certification_number>"],
+    "category": ["<category_number_1>", "<category_number_2>", ...]
+}}
+
+Example:
+{{
+    "certification": ["1"],
+    "category": ["1", "2"]
+}}
