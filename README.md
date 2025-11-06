@@ -1,4 +1,12 @@
-## Repository for Expert-Guided-Prompting-and-Retrieval-Augmented-Generation-for-EMS-Question-Answering
+## Expert-Guided Prompting and Retrieval-Augmented Generation for EMS Question Answering
+
+Code repository: **Expert-Guided Prompting and Retrieval-Augmented Generation for EMS Question Answering**
+
+<p align="center">
+  🌐 <a href="https://xueren-ge.github.io/Expert-Guided-Prompting-and-Retrieval-Augmented-Generation-for-EMS-Question-Answering/">Project</a>
+  · 📄 <a href="">Paper</a>
+  · 🤗 <a href="https://huggingface.co/datasets/Xueren/EMS-MCQA">Dataset</a>
+</p>
 
 ### Overall Stucture of the Work
 ![Overall Approach](figure/EMSQA.drawio.png)
