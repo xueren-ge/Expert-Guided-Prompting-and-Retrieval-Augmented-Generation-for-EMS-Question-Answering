@@ -751,3 +751,25 @@ a:focus {
 
 
 
+/* Generic safety: never let images overflow the page */
+img { max-width: 100%; height: auto; }
+
+/* Keep approach/results figures tidy and centered */
+.results-carousel .item img,
+.results-fig img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;            /* responsive width */
+  max-width: 900px;       /* cap desktop width */
+  max-height: 520px;      /* cap height if the PNG is very tall */
+  object-fit: contain;    /* no cropping */
+}
+
+/* Optional: smaller caps on phones */
+@media (max-width: 768px) {
+  .results-carousel .item img,
+  .results-fig img {
+    max-width: 100%;
+    max-height: 360px;
+  }
+}
