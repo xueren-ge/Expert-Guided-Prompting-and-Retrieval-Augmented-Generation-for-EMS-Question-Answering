@@ -314,18 +314,34 @@
 <section class="section teaser">
   <div class="container is-max-desktop">
     <figure class="image">
-      <!-- Replace with your image -->
       <img
         src="static/images/EMSQA.drawio.png"
-        alt="High-level overview of Expert-CoT + ExpertRAG for EMS QA"
+        alt="Overview of Expert-CoT and ExpertRAG for EMS QA"
         loading="lazy"
+        class="teaser-img"
       />
-      <figcaption class="has-text-grey is-size-6 has-text-centered mt-2">
-        <b>Figure 1.</b> Recent approaches in medical MCQA, such as chain-of-thought prompting (CoT) and retrieval-augmented generation (RAG), have improved LLM performance by enhancing reasoning capabilities and incorporating external domain knowledge during inference. But these approaches often treat both reasoning and retrieval as undifferentiated processes: the model sees a question and retrieves documents or reasons directly, without considering what kind of knowledge is relevant or how a human expert would approach the task. In contrast, real-world medical professionals typically begin by identifying the subject area of the question—e.g., whether it pertains to trauma, airway management, or pharmacology—and then reason from that domain-specific perspective, using knowledge and protocols appropriate to their level of certification. Existing benchmarks such as MedQA, MMLU-Med and MedMCQA lack both this structured representation of question expertise (e.g., subject area, certification level) and the associated domain-specific knowledge. This makes it difficult to align retrieval and reasoning processes with human-like problem-solving strategies.
+      <figcaption class="has-text-grey is-size-6 has-text-justified mt-3">
+        <b>Figure 1.</b>
+        Recent medical MCQA systems leverage <em>chain-of-thought (CoT)</em> prompting and
+        <em>retrieval-augmented generation (RAG)</em> to boost reasoning and use external
+        knowledge. However, they typically treat both reasoning and retrieval as
+        task-agnostic: the model sees a question, then reasons or retrieves without regard
+        to the <em>type of clinical expertise</em> required. In practice, clinicians first
+        identify the <strong>subject area</strong> (e.g., trauma, airway, pharmacology) and
+        the relevant <strong>certification level</strong> (EMR/EMT/AEMT/Paramedic), and then
+        apply protocols specific to that expertise. Existing benchmarks (e.g., MedQA,
+        MMLU-Med, MedMCQA) lack this structured notion of expertise and the aligned
+        knowledge resources, making it difficult to align retrieval and reasoning with
+        human clinical workflow.
       </figcaption>
     </figure>
   </div>
 </section>
+
+<style>
+  .teaser-img { max-width: 980px; width: 100%; height: auto; margin: 0 auto; display: block; }
+</style>
+
 
 
 <!-- Paper abstract -->
@@ -346,6 +362,65 @@
 </section>
 <!-- End paper abstract -->
 
+
+
+<!-- Dataset Statistics -->
+<section id="dataset-stats" class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Dataset Statistics</h2>
+    <p class="has-text-grey has-text-centered mb-5">
+      A high-level snapshot of EMSQA by subject area, certification level, and question attributes.
+    </p>
+
+    <div class="columns is-variable is-6 is-multiline">
+      <!-- Figure A -->
+      <div class="column is-12-tablet is-6-desktop">
+        <figure class="image stats-figure">
+          <img
+            src="static/images/EMSQA_statistics.png"
+            alt="EMS-MCQA statistics"
+            loading="lazy"
+          />
+          <figcaption class="has-text-grey is-size-6 mt-2">
+            <b>Figure 2a.</b> EMS-MCQA statistics
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Figure B -->
+      <div class="column is-12-tablet is-6-desktop">
+        <figure class="image stats-figure">
+          <img
+            src="static/images/statistics.png"
+            alt="Distribution of questions across certification levels"
+            loading="lazy"
+          />
+          <figcaption class="has-text-grey is-size-6 mt-2">
+            <b>Figure 2b.</b> Question distribution by <em>certification level</em> and <em>subject area</em>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Optional: keep figures nicely sized and consistent -->
+<style>
+  .stats-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 520px;          /* prevent super tall charts */
+    object-fit: contain;
+    background: #fafafa;        /* subtle backdrop for transparency */
+    border-radius: 8px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.04), 0 2px 10px rgba(0,0,0,.06);
+  }
+  /* Optional tighter spacing on small screens */
+  @media (max-width: 768px) {
+    #dataset-stats .columns { margin-top: 0.75rem; }
+  }
+</style>
 
 
 <!-- ===================== Approach (Teaser) ===================== -->
