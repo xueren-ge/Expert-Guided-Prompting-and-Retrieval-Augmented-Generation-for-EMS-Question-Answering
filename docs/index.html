@@ -348,23 +348,55 @@
 
 
 
-<!-- Image carousel -->
+<!-- ===================== Approach (Teaser) ===================== -->
 <section class="section teaser">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Approach</h2>
+
     <figure class="image">
-      <!-- Replace with your image -->
+      <!-- Teaser image -->
       <img
         src="static/images/ExpertRAG.drawio.png"
-        alt="High-level overview of Expert-CoT + ExpertRAG for EMS QA"
+        alt="High-level overview of Expert-CoT and ExpertRAG for EMS QA"
         loading="lazy"
+        class="approach-img"
       />
-      <figcaption class="has-text-grey is-size-6 has-text-centered mt-2">
-        <b>Figure 2.</b> How to inject domain expertise into LLMs for EMS QA? 1) Expertise-guided prompting (Expert-CoT) 2) Expertise-guided RAG (ExpertRAG).
+
+      <figcaption class="has-text-grey is-size-6 has-text-justified mt-3">
+        <strong>Figure 2.</strong>
+        <strong>How to inject domain expertise into LLMs for EMS QA?</strong>
+        (1) <strong>Expertise-guided prompting (Expert-CoT):</strong>
+        Standard CoT encourages step-by-step reasoning but does not specify where to begin.
+        Expert-CoT anchors the model’s first steps by explicitly providing the
+        <em>subject area</em> and <em>certification level</em>.
+        (2) <strong>Expertise-guided RAG (ExpertRAG):</strong>
+        A lightweight filter predicts the question’s subject area and steers the retriever
+        toward matching knowledge-base entries and patient records; the LLM then conditions on
+        the predicted expertise plus the retrieved evidence to produce the answer.
+        We study three retriever strategies:
+        <strong>Global</strong> – retrieve the top M KB and N PR documents from the entire corpora
+        (baseline, no subject filtering);
+        <strong>Filter → Retrieve (FTR)</strong> – first filter KB/PR to the predicted subject area
+        ŝ<sub>i</sub>, then retrieve the top M and N;
+        <strong>Retrieve → Filter (RTF)</strong> – first retrieve a larger pool from full KB/PR
+        (e.g., 10×M and 10×N), then drop items whose subject area ≠ ŝ<sub>i</sub>, keeping the
+        best M and N.
       </figcaption>
     </figure>
   </div>
 </section>
+
+<!-- Optional: a tiny style to keep the image nicely sized -->
+<style>
+  .approach-img {
+    display: block;
+    margin: 0 auto;
+    max-width: 950px;   /* adjust as you like */
+    width: 100%;
+    height: auto;
+  }
+</style>
+
 
 
 
