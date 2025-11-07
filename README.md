@@ -1,6 +1,6 @@
 ## Expert-Guided Prompting and Retrieval-Augmented Generation for EMS Question Answering
 
-Code repository: **Expert-Guided Prompting and Retrieval-Augmented Generation for EMS Question Answering**
+Code repository: **Expert-Guided Prompting and Retrieval-Augmented Generation for EMS Question Answering**, AAAI 2026
 
 <p align="center">
   🌐 <a href="https://xueren-ge.github.io/Expert-Guided-Prompting-and-Retrieval-Augmented-Generation-for-EMS-Question-Answering/">Project</a>
